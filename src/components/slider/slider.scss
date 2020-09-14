@@ -1,0 +1,15 @@
+#sliderWrp{
+    width: 100%;
+    overflow: hidden;
+    background: red;
+    #sliderHolder{
+        display: flex;
+        width: 400%;
+        background: blue;
+        .item{
+            display: flex;
+            background: peru;
+            width:100% ;
+        }
+    }
+}

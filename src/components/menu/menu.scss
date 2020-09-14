@@ -1,0 +1,43 @@
+#headerBar {
+  display: flex;
+  justify-content: space-around;
+  background: #e0e0e0;
+  #menuWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+  #mainMenu {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    li {
+      a {
+        color: #999;
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  #auth {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+
+    li {
+      margin-right: 20px;
+      a {
+        color: #999;
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
