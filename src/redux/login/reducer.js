@@ -1,7 +1,9 @@
+import axios from "axios";
 import { loginFailed, loginSuccess } from "./action";
 import { LOGIN, LOGIN_FAILED, LOGIN_SUCCESS } from "./const";
 import { put, select } from "redux-saga/effects";
-import axios from "axios";
+
+//require('dotenv').config()
 
 const initialState = {
   loading: false,

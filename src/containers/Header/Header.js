@@ -1,5 +1,5 @@
 import React from "react";
-import Menu from "../components/menu/Menu";
+import Menu from "../../components/menu/Menu";
 import { Col, Row, Container } from "react-bootstrap";
 
 function Header() {

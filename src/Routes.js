@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Login from "./auth/login/Login";
-import Register from "./auth/register/Register";
-import Dashboard from "./containers/Dashboard";
-import Home from "./containers/Home";
+import Login from "./containers/auth/login/Login";
+import Register from "./containers/auth/register/Register";
+import Dashboard from "./containers/Dashboard/Dashboard";
+import Home from "./containers/Home/Home";
 
 export default function Routes() {
   return (

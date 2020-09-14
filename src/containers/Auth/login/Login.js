@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Button from "../../components/UIKIT/Button/Button";
-import Header from "../../containers/Header";
+import Header from "../../Header/Header";
+
 import { useDispatch } from "react-redux";
-import { Input } from "../../components/UIKIT";
-import { login } from "../../redux/login/action";
+import { Button, Input } from "../../../components/UIKIT";
+import { login } from "../../../redux/login/action";
+
 import "../auth.scss";
 
 export default function Login() {
