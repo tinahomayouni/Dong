@@ -1,44 +1,36 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { Input } from "../../../components/UIKIT";
-import Button from "../../../components/UIKIT/Button/Button";
-
-import {
-  register,
-  registerFailed,
-  registerSuccess,
-} from "../../../redux/register/action";
-import axios from "axios";
-import "../auth.scss";
 import Header from "../../Header/Header";
+import { useDispatch } from "react-redux";
+import { Input, Button } from "../../../components/UIKIT";
+import { register } from "../../../redux/register/action";
+import "../auth.scss";
 
 export default function Register() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
   const dispatch = useDispatch();
-  const history = useHistory();
+
   const onsubmit = (e) => {
     e.preventDefault();
     dispatch(register({ email, password }));
-    doRegisterRequest();
   };
-  async function doRegisterRequest(e) {
-    try {
-      const data = await axios({
-        url: "https://reqres.in/api/register",
-        method: "post",
-        data: { email, password },
-      });
-      dispatch(registerSuccess(data.data));
-      window.localStorage.setItem("register token", data.data.token);
-      setTimeout(function () {
-        history.push("/dashboard");
-      }, 3000);
-    } catch {
-      dispatch(registerFailed(e.response.data.error));
-    }
-  }
+  // async function doRegisterRequest(e) {
+  //   try {
+  //     const data = await axios({
+  //       url: "https://reqres.in/api/register",
+  //       method: "post",
+  //       data: { email, password },
+  //     });
+  //     dispatch(registerSuccess(data.data));
+  //     window.localStorage.setItem("register token", data.data.token);
+  //     setTimeout(function () {
+  //       history.push("/dashboard");
+  //     }, 3000);
+  //   } catch {
+  //     dispatch(registerFailed(e.response.data.error));
+  //   }
+  // }
   return (
     <>
       <Header />
