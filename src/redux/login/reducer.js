@@ -1,14 +1,14 @@
-import axios from "axios";
-import { loginFailed, loginSuccess } from "./action";
-import { LOGIN, LOGIN_FAILED, LOGIN_SUCCESS } from "./const";
-import { put, select } from "redux-saga/effects";
+import Axios from '../../API/client';
+import { loginFailed, loginSuccess } from './action';
+import { LOGIN, LOGIN_FAILED, LOGIN_SUCCESS } from './const';
+import { put, select } from 'redux-saga/effects';
 
 //require('dotenv').config()
 
 const initialState = {
   loading: false,
   data: [],
-  error: "",
+  error: ''
 };
 
 function loginReducer(state = initialState, action) {
@@ -17,21 +17,21 @@ function loginReducer(state = initialState, action) {
       return {
         ...state,
         ...action.payload,
-        loading: true,
+        loading: true
       };
     case LOGIN_SUCCESS:
       return {
         ...state,
         loading: false,
         data: action.data,
-        error: "",
+        error: ''
       };
     case LOGIN_FAILED:
       return {
         ...state,
         loading: false,
         data: [],
-        error: action.error,
+        error: action.error
       };
     default:
       return state;
@@ -40,12 +40,9 @@ function loginReducer(state = initialState, action) {
 
 export function* loginSaga() {
   try {
-    const { email, password } = yield select((state) => state.loginReducer);
-    const data = yield axios({
-      url: "https://reqres.in/api/login",
-      method: "post",
-      data: { email, password },
-    });
+    const { email, password } = yield select(state => state.loginReducer);
+
+    const data = yield Axios.post('/login', { email, password });
 
     yield put(loginSuccess(data.data));
     // yield history.push("./dashboard");

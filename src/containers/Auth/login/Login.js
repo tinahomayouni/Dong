@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import Header from "../../Header/Header";
-
-import { useDispatch } from "react-redux";
-import { Button, Input } from "../../../components/UIKIT";
-import { login } from "../../../redux/login/action";
-
-import "../auth.scss";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Button, Input } from '../../../components/UIKIT';
+import { login } from '../../../redux/login/action';
+import '../auth.scss';
+import Card from '../../../components/UIKIT/card/card';
 
 export default function Login() {
   const [email, setEmail] = useState();
@@ -13,7 +11,7 @@ export default function Login() {
 
   const dispatch = useDispatch();
 
-  const onsubmit = (e) => {
+  const onsubmit = e => {
     e.preventDefault();
     dispatch(login({ email, password }));
   };
@@ -36,18 +34,17 @@ export default function Login() {
   // }
 
   return (
-    <>
-      <Header />
+    <Card>
       <form onSubmit={onsubmit}>
-        <Input value={email} label="email" onChange={setEmail}></Input>
+        <Input value={email} label='email' onChange={setEmail}></Input>
         <Input
           value={password}
-          label="password"
-          type="password"
+          label='password'
+          type='password'
           onChange={setPassword}
         ></Input>
         <Button>Submit</Button>
       </form>
-    </>
+    </Card>
   );
 }
