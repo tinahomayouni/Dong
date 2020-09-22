@@ -1,15 +1,32 @@
-import React from "react";
-import Login from "../containers/Auth/login/Login";
-import Register from "../containers/Auth/register/Register";
-import Dashboard from "../containers/Dashboard/Dashboard";
-import Home from "../containers/Home/Home";
+import React from 'react';
+import Header from '../containers/Header/Header';
+import './layout.scss';
 
-const LayoutHome = ({ children }) => <Home />;
+// import Login from "../containers/Auth/login/Login";
+// import Register from "../containers/Auth/register/Register";
+// import Dashboard from "../containers/Dashboard/Dashboard";
+// import Home from "../containers/Home/Home";
 
-const LayoutLogin = ({ children }) => <Login />;
+// const LayoutHome = ({ children }) => <Home />;
 
-const LayoutRegister = ({ children }) => <Register />;
+// const LayoutLogin = ({ children }) => <Login />;
 
-const LayoutDashboard = ({ children }) => <Dashboard />;
+// const LayoutRegister = ({ children }) => <Register />;
 
-export { LayoutHome, LayoutLogin, LayoutRegister, LayoutDashboard };
+// const LayoutDashboard = ({ children }) => <Dashboard />;
+
+// export { LayoutHome, LayoutLogin, LayoutRegister, LayoutDashboard };
+
+function Layout(props) {
+  return (
+    <>
+      <div className='header'>
+        <Header />
+      </div>
+      <div className='sideBar'></div>
+      <div className='content'>{props.children}</div>
+    </>
+  );
+}
+
+export default Layout;

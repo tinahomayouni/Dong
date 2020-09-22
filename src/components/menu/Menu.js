@@ -1,21 +1,47 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./menu.scss";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './menu.scss';
 
 export default function Menu() {
   return (
-    <div id="menuWrapper">
-      <ul id="mainMenu">
+    <div id='menuWrapper'>
+      <ul id='mainMenu'>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink
+            to='/'
+            exact
+            activeStyle={{
+              fontWeight: 'bold',
+              color: 'red'
+            }}
+          >
+            {' '}
+            Home
+          </NavLink>
         </li>
       </ul>
-      <ul id="auth">
+      <ul id='auth'>
         <li>
-          <Link to="/login">login</Link>
+          <NavLink
+            to='/login'
+            activeStyle={{
+              fontWeight: 'bold',
+              color: 'red'
+            }}
+          >
+            login
+          </NavLink>
         </li>
         <li>
-          <Link to="/register">register</Link>
+          <NavLink
+            to='/register'
+            activeStyle={{
+              fontWeight: 'bold',
+              color: 'red'
+            }}
+          >
+            register
+          </NavLink>
         </li>
       </ul>
     </div>
