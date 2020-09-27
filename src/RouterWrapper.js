@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import history from "./history/history";
 
 export default function RouteWrapper({
   component: Component,
@@ -7,7 +8,8 @@ export default function RouteWrapper({
   ...rest
 }) {
   return (
-    <Route
+    <Route 
+      history={history}
       {...rest}
       render={(props) => (
         <Layout {...props}>

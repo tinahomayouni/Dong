@@ -1,4 +1,6 @@
-import axios from "axios";
+import Axios from '../../API/client';
+import history from '../../history/history';
+
 import { put, select } from "redux-saga/effects";
 import { registerFailed, registerSuccess } from "./action";
 import { REGISTER, REGISTER_FAILED, REGISTER_SUCCESS } from "./const";
@@ -39,14 +41,11 @@ function registerReducer(state = initialState, action) {
 export function* registerSaga() {
   try {
     const { email, password } = yield select((state) => state.registerReducer);
-    const data = yield axios({
-      url: "https://reqres.in/api/register",
-      method: "post",
-      data: { email, password },
-    });
+    const data = yield Axios.post('/register', { email, password });
 
     yield put(registerSuccess(data.data));
-    // yield history.push("./dashboard");
+    yield history.push("/dashboard");
+    console.log('here is pushHistory')
   } catch (e) {
     yield put(registerFailed(e));
   }

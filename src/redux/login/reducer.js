@@ -1,9 +1,8 @@
 import Axios from '../../API/client';
+import history from '../../history/history';
 import { loginFailed, loginSuccess } from './action';
 import { LOGIN, LOGIN_FAILED, LOGIN_SUCCESS } from './const';
 import { put, select } from 'redux-saga/effects';
-
-//require('dotenv').config()
 
 const initialState = {
   loading: false,
@@ -45,7 +44,8 @@ export function* loginSaga() {
     const data = yield Axios.post('/login', { email, password });
 
     yield put(loginSuccess(data.data));
-    // yield history.push("./dashboard");
+    yield history.push("./dashboard");
+    console.log('history is worth')
   } catch (e) {
     yield put(loginFailed(e));
   }

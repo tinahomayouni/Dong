@@ -1,13 +1,4 @@
 import axios from 'axios';
-// function axiosInstance(method, url, data) {
-//   axios({
-//     method,
-//     url,
-//     data,
-//   });
-// }
-
-// export default axiosInstance;
 
 const Axios = axios.create({
   baseURL: process.env.REACT_APP_BASE_PATH,
